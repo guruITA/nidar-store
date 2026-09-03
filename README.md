@@ -1,2 +1,2 @@
 # nidar-store
-Full-stack streetwear webshop built with React, Rust, Axum and MySQL.
+Full-stack streetwear webshop built with React, Spring Boot and MySQL.
