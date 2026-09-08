@@ -1,0 +1,22 @@
+name: Validate main PR source
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  source-branch:
+    name: Require development source
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_BRANCH: ${{ github.head_ref }}
+
+    steps:
+      - name: Validate source branch
+        shell: bash
+        run: |
+          if [ "$SOURCE_BRANCH" != "development" ]; then
+            echo "PRs naar main moeten vanuit development komen."
+            exit 1
+          fi
