@@ -19,6 +19,6 @@ jobs:
         shell: bash
         run: |
           if [ "$SOURCE_BRANCH" != "development" ] || [ "$HEAD_REPOSITORY" != "$BASE_REPOSITORY" ]; then
-            echo "PRs naar main moeten vanuit development komen."
+            echo "PRs to main must come from "development" branch."
             exit 1
           fi
