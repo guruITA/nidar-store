@@ -11,12 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SOURCE_BRANCH: ${{ github.head_ref }}
+      HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+      BASE_REPOSITORY: ${{ github.repository }}
 
     steps:
       - name: Validate source branch
         shell: bash
         run: |
-          if [ "$SOURCE_BRANCH" != "development" ]; then
+          if [ "$SOURCE_BRANCH" != "development" ] || [ "$HEAD_REPOSITORY" != "$BASE_REPOSITORY" ]; then
             echo "PRs naar main moeten vanuit development komen."
             exit 1
           fi
