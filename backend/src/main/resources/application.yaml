@@ -1,3 +1,28 @@
 spring:
+
+# Application configuration
   application:
     name: backend
+
+# Database Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/nidar_shop
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+## Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+## Flyway Configuration
+  flyway:
+    enabled: true
+
+## Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
