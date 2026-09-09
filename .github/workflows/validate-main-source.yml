@@ -1,7 +1,7 @@
 # https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request
 # https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#env
 
-name: Validate production PR source
+name: Validate main PR source
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   source-branch:
-    name: Require "development" source branch for PRs to "production"
+    name: Require development source
     runs-on: ubuntu-latest
     env:
       SOURCE_BRANCH: ${{ github.head_ref }}
