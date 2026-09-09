@@ -1,3 +1,6 @@
+# https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request
+# https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#env
+
 name: Validate main PR source
 
 on:
