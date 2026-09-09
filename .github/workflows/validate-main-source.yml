@@ -1,9 +1,12 @@
+# https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request
+# https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#env
+
 name: Validate main PR source
 
 on:
   pull_request:
     branches:
-      - main
+      - production
 
 jobs:
   source-branch:
@@ -19,6 +22,6 @@ jobs:
         shell: bash
         run: |
           if [ "$SOURCE_BRANCH" != "development" ] || [ "$HEAD_REPOSITORY" != "$BASE_REPOSITORY" ]; then
-            echo "PRs to main must come from "development" branch."
+            echo "PRs to "production" must come from "development" branch."
             exit 1
           fi
